@@ -48,6 +48,10 @@ app.delete("/planets/:id", (req, res) => {
 
 
 // update route
+app.put("/planets/:id", (req, res) => {
+    scientists[req.params.id] = req.body;
+    res.redirect("/planets");
+});
 
 
 // create route
@@ -57,14 +61,19 @@ app.post("/planets", (req, res) => {
 });
 
 // edit route
+app.get("/planets/:id/edit", (req, res) => {
+    res.render("edit.ejs", {
+        scientist: scientists[req.params.id],
+        index: req.params.id
+    })
+});
 
 
 // show route
 
 app.get("/planets/:id", (req, res) => {
     const foundScientist = scientists[req.params.id];
-    console.log(foundScientist);
-    res.render("show.ejs", {foundScientist});
+    res.render("show.ejs", {scientist:foundScientist, index: req.params.id});
 });
 
 // Tell app to listen for client requests
