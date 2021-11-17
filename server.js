@@ -29,8 +29,13 @@ app.use(methodOverride("_method"));
 // Mount routes
 
 // index route
-app.get("/", (req, res) => {
-    res.send("Hello World");
+app.get("/planets", (req, res) => {
+    res.render("index.ejs");
+});
+
+// new route
+app.get("/planets/new", (req, res) => {
+    res.render("new.ejs");
 });
 
 // Tell app to listen for client requests
