@@ -8,6 +8,14 @@
     <title>New Planet Page</title>
 </head>
 <body>
-    <h1>Create A New Planet</h1>
+    <h1>Add A New Scientist</h1>
+    <form action="/planets" method="POST">
+        <input type="text" placeholder="Name" name="name" class="margin"><br>
+        <input type="text" placeholder="Description" name="description" class="margin"><br>
+        <input type="submit" value="Add New Scientist" class="margin">
+    </form>
+    <div class="home-page-button">
+        <a href="/planets" class="button margin">Home Page</a>
+    </div>
 </body>
 </html>
